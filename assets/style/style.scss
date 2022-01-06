@@ -1,0 +1,95 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+$gris : #ebeff3;
+$blanc: #ffffff;
+$noir: #2C3A47;
+$mainFont: 'Roboto', sans-serif;
+$displayFont: 'Oswald', sans-serif;
+html{
+  font-family: $mainFont;
+  body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4em 0;
+    background: $gris;
+    min-height: 100vh;
+    padding-top: 4em;
+    section{
+      width: 100%;
+      .wrapper-section{
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        h1{
+          align-self: center;
+          font-size: 2em;
+          font-family: $displayFont;
+        }
+      }
+      &#search{
+        div.wrapper-section{
+          background: $blanc;
+          box-sizing: border-box;
+          padding: 2em;
+          border-radius: 4px;
+          flex-direction: column;
+          gap: 2em;
+          div.wrapper-form{
+            position: relative;
+            $tailleBloc: 1em;
+            &::before{
+              content: "";
+              display: block;
+              width: calc(#{$tailleBloc} + .5em);
+              height: calc(#{$tailleBloc} + .5em);
+              background-image: url("../images/icon-search.svg");
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-size: contain;
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 1em;
+              margin: auto 0;
+            }
+            input{
+              padding: 1em 1em 1em calc(#{$tailleBloc} + 2em);
+              font-size: 1em;
+              width: 100%;
+              box-sizing: border-box;
+            }
+            ul{
+              visibility: hidden;
+              position: absolute;
+              width: 100%;
+              background-color: $blanc;
+              border: 1px solid rgba($noir, .25);
+              border-top-color: rgba($noir, 0);
+              transition: all ease-in 150ms;
+              &.active{
+                visibility: visible;
+              }
+              li{
+                padding: 1em;
+                transition: all ease-in 150ms;
+                cursor: pointer;
+                box-sizing: border-box;
+                &:hover, &:focus{
+                  background-color: rgba($gris, 5);
+                }
+                &.disabled{
+                  cursor: initial;
+                  &:hover, &:focus{
+                    background-color: rgba($gris, 0);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

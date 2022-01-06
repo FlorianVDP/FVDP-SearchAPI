@@ -1,0 +1,89 @@
+@import "reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
+html {
+  font-family: "Roboto", sans-serif;
+}
+html body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4em 0;
+  background: #ebeff3;
+  min-height: 100vh;
+  padding-top: 4em;
+}
+html body section {
+  width: 100%;
+}
+html body section .wrapper-section {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+html body section .wrapper-section h1 {
+  align-self: center;
+  font-size: 2em;
+  font-family: "Oswald", sans-serif;
+}
+html body section#search div.wrapper-section {
+  background: #ffffff;
+  box-sizing: border-box;
+  padding: 2em;
+  border-radius: 4px;
+  flex-direction: column;
+  gap: 2em;
+}
+html body section#search div.wrapper-section div.wrapper-form {
+  position: relative;
+}
+html body section#search div.wrapper-section div.wrapper-form::before {
+  content: "";
+  display: block;
+  width: calc(1em + .5em);
+  height: calc(1em + .5em);
+  background-image: url("../images/icon-search.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1em;
+  margin: auto 0;
+}
+html body section#search div.wrapper-section div.wrapper-form input {
+  padding: 1em 1em 1em calc(1em + 2em);
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+html body section#search div.wrapper-section div.wrapper-form ul {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid rgba(44, 58, 71, 0.25);
+  border-top-color: rgba(44, 58, 71, 0);
+  transition: all ease-in 150ms;
+}
+html body section#search div.wrapper-section div.wrapper-form ul.active {
+  visibility: visible;
+}
+html body section#search div.wrapper-section div.wrapper-form ul li {
+  padding: 1em;
+  transition: all ease-in 150ms;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+html body section#search div.wrapper-section div.wrapper-form ul li:hover, html body section#search div.wrapper-section div.wrapper-form ul li:focus {
+  background-color: #ebeff3;
+}
+html body section#search div.wrapper-section div.wrapper-form ul li.disabled {
+  cursor: initial;
+}
+html body section#search div.wrapper-section div.wrapper-form ul li.disabled:hover, html body section#search div.wrapper-section div.wrapper-form ul li.disabled:focus {
+  background-color: rgba(235, 239, 243, 0);
+}
+
+/*# sourceMappingURL=style.css.map */
