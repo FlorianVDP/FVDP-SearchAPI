@@ -198,7 +198,7 @@ window.addEventListener(
                 function autocompleteList(){
                     let autoCompleteList = responseApi[0].features;
                     let autoCompleteListElement = document.createElement("ul");
-                    if (autoCompleteList.length != 0){
+                    if (autoCompleteList.length > 0){
                         autoCompleteList.forEach((element) =>{
                             let label = element.properties.label;
                             let itemAutocomplete = createElement("li", "", autoCompleteListElement, "");
@@ -214,7 +214,7 @@ window.addEventListener(
                                     createTodoList(arrayList)
                                     //reset
                                     searchInput.value = "";
-                                    searchValue = 0;
+                                    autoCompleteList = [];
                                     sectionList.classList.add("active");
                                     displayedAutocompleteList.classList.remove("active")
                                 } // end function addEventListener itemAutocomplete
