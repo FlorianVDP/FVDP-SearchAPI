@@ -3,8 +3,35 @@
 $gris : #ebeff3;
 $blanc: #ffffff;
 $noir: #2C3A47;
+$rouge : #e84118;
+$vert : #4cd137;
 $mainFont: 'Roboto', sans-serif;
 $displayFont: 'Oswald', sans-serif;
+$tailleBloc: 1em;
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
 html{
   font-family: $mainFont;
   body{
@@ -38,8 +65,7 @@ html{
           gap: 2em;
           div.wrapper-form{
             position: relative;
-            $tailleBloc: 1em;
-            &::before{
+            button{
               content: "";
               display: block;
               width: calc(#{$tailleBloc} + .5em);
@@ -53,6 +79,12 @@ html{
               bottom: 0;
               left: 1em;
               margin: auto 0;
+              border: none;
+              background-color: rgba($noir, 0);
+              &.active{
+                background-image: url("../images/icon-close.svg");
+                cursor: pointer;
+              }
             }
             input{
               padding: 1em 1em 1em calc(#{$tailleBloc} + 2em);
@@ -62,14 +94,17 @@ html{
             }
             ul{
               visibility: hidden;
+              opacity: 0;
               position: absolute;
               width: 100%;
               background-color: $blanc;
               border: 1px solid rgba($noir, .25);
               border-top-color: rgba($noir, 0);
               transition: all ease-in 150ms;
+              z-index: 99;
               &.active{
                 visibility: visible;
+                opacity: 1;
               }
               li{
                 padding: 1em;
@@ -83,6 +118,102 @@ html{
                   cursor: initial;
                   &:hover, &:focus{
                     background-color: rgba($gris, 0);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &#liste{
+        visibility: hidden;
+        opacity: 0;
+        transition: all ease-in 150ms;
+        &.active{
+          visibility: visible;
+          opacity: 1;
+        }
+        div.wrapper-section{
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 1em;
+          background: $blanc;
+          box-sizing: border-box;
+          padding: 2em;
+          border-radius: 4px;
+          position: relative;
+          button.filter{
+            background-color: rgba($blanc, 0);
+            border: none;
+            font-size: 40px;
+            color: $noir;
+            flex-basis: content;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all ease-in 150ms;
+            &.on{
+              color: $vert;
+            }
+          }
+          h2{
+            flex-basis: content;
+            font-size: 1.5em;
+            font-family: $displayFont;
+            display: flex;
+            align-items: center;
+          }
+          ul{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            li{
+              box-sizing: border-box;
+              padding: 1em 1em;
+              transition: all ease-in 150ms;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 1em;
+              border: 1px solid $blanc;
+              &:hover, &:focus{
+                background-color: rgba($gris, 5);
+              }
+              &.check{
+                border-left: 5px solid $vert;
+                background-color: lighten($vert, 45);
+                button{
+                  &:first-of-type{
+
+                  }
+                  &:last-of-type{
+
+                  }
+                }
+              }
+              div.wrapper-cmd{
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                button{
+                  background-color: rgba($noir, 0);
+                  border: none;
+                  border-radius: 100px;
+                  display: inline-block;
+                  padding: 0;
+                  margin: 0;
+                  cursor: pointer;
+                  &:first-of-type{
+                    color : $vert;
+                    &:hover, &:focus{
+                      color: darken($vert, 10);
+                    }
+                  }
+                  &:last-of-type{
+                    color: $rouge;
+                    &:hover, &:focus{
+                      color: darken($rouge, 10);
+                    }
                   }
                 }
               }
